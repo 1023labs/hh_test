@@ -7,9 +7,11 @@
   <title>테스트</title>
 </head>
 <body>
-  ver:4
+  ver:1
   <br />
-  <button onclick="goto()">프로그램 실행 2 goto</button>
+  <button id="run-prog" onclick="goto()">프로그램 실행 3</button>
+
+
   <br />
   <button onclick="click_link()">프로그램 실행 2 click_link</button>
   <br />
@@ -31,21 +33,11 @@ function click_link() {
 
 function goto() {
   var url = "HaeahnApp:?userno=20010601&urn=C15ADA7A7BF6D78932C4BAE5B7E6EA12B7EAAFFD04B98C3103C25989F3961188"
-  var fallback = "//www.google.com";
-
-  var script = document.createElement('script'); 
-
-  script.onload = function() { 
-    document.location.href = url;
-  } 
   
-  script.onerror = function() { 
-    alert('프로그램 설치안됨')
-    // document.location.href = fallback;
-  } 
-  script.setAttribute('src', url); 
-
-  document.getElementsByTagName('head')[0].appendChild(script);
+  $('#PrintBtn').on('click', function(event){
+    event.preventDefault();
+    window.location.href = 'mycustproto:dealer ' + $('#DealerName').val();
+  });
 }
 
 </script>
