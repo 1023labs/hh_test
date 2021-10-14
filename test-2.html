@@ -17,7 +17,13 @@
 
 <script>
 function click_link() {
-  document.getElementById("run_prog").click()
+  try {
+    document.getElementById("run_prog").click()
+  } catch(e) {
+    console.log(e)
+    alert('error')
+  }
+  
 }
 
 function goto() {
