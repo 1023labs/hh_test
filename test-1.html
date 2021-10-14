@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테스트</title>
+</head>
+<body>
+  <button onclick="goto()">프로그램 실행</button>
+</body>
+</html>
+
+<script>
+
+function goto() {
+  var url = "HaeahnApp:?userno=20010601&urn=C15ADA7A7BF6D78932C4BAE5B7E6EA12B7EAAFFD04B98C3103C25989F3961188"
+  var fallback = "https://www.google.com";
+
+  var xmlhttp = new XMLHttpRequest();
+
+  xmlhttp.open('GET', url, false);
+
+  try {
+    xmlhttp.send(null);
+    // Send the request now
+  } catch (e) {
+
+    document.location.href = fallback;
+    return;
+
+  }
+
+
+
+  // Throw an error if the request was not 200 OK
+
+  if (xmlhttp.status === 200) {
+    document.location.href = url;
+  } else {
+    document.location.href = fallback;
+  }
+}
+</script>
