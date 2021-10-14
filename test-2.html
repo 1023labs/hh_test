@@ -7,14 +7,20 @@
   <title>테스트</title>
 </head>
 <body>
-  <button onclick="goto()">프로그램 실행 2</button>
+  <button onclick="goto()">프로그램 실행 2 goto</button>
+  <button onclick="click_link()">프로그램 실행 2 click_link</button>
+  
+  <a id="run_prog" href="HaeahnApp:?userno=20010601&urn=C15ADA7A7BF6D78932C4BAE5B7E6EA12B7EAAFFD04B98C3103C25989F3961188">프로그램 실행 (직접)</a>
 </body>
 </html>
 
 
 <script>
+function click_link() {
+  document.getElementById("run_prog").click()
+}
 
-function goto(url, fallback) {
+function goto() {
   var url = "HaeahnApp:?userno=20010601&urn=C15ADA7A7BF6D78932C4BAE5B7E6EA12B7EAAFFD04B98C3103C25989F3961188"
   var fallback = "//www.google.com";
 
@@ -23,9 +29,10 @@ function goto(url, fallback) {
   script.onload = function() { 
     document.location.href = url;
   } 
+  
   script.onerror = function() { 
     alert('프로그램 설치안됨')
-    document.location.href = fallback;
+    // document.location.href = fallback;
   } 
   script.setAttribute('src', url); 
 
