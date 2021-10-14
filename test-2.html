@@ -7,7 +7,7 @@
   <title>테스트</title>
 </head>
 <body>
-  ver:3
+  ver:4
   <br />
   <button onclick="goto()">프로그램 실행 2 goto</button>
   <br />
@@ -22,14 +22,16 @@
 
 <script>
 function click_link() {
-  document.getElementById("run_prog").click()
+  
   
   setTimeout(
     function() {
       if (confirm('You do not seem to have app installed, do you want to download it now?')) {
         window.location.href = 'https://play.google.com/store/';
                   } 
-  }, 1000);
+  }, 500);
+
+  document.getElementById("run_prog").click()
 }
 
 function goto() {
